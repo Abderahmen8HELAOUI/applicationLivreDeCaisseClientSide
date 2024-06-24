@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Tutorial} from "../../models/tutorial.model";
-import {TutorialService} from "../../services/tutorial.service";
+//import {TutorialService} from "../../services/tutorial.service";
 import {Router} from "@angular/router";
 
 @Component({
@@ -30,32 +30,32 @@ export class AddTutorialComponent implements OnInit {
   };
   submitted = false;
 
-  constructor(private tutorialService: TutorialService,
-              private router: Router) {}
-
-  ngOnInit(): void {
-
-    this.tutorialService.getFinalBalanceLastMonth().subscribe(
-      res => {
-        this.tutorial.balancePreviousMonth = res;
-        console.log(res);
-      }
-    );
-
-    this.tutorialService.getTotalTreasuryOperationsLastRow().subscribe(
-      res => {
-        this.tutorial.operationTreasuryAnterior = res;
-        console.log(res);
-      }
-    );
-
-    this.tutorialService.getTotalRegulationOperationsLastRow().subscribe(
-      res => {
-        this.tutorial.operationPreviousRegulation = res;
-        console.log(res);
-      }
-    );
-  }
+  // constructor(private tutorialService: TutorialService,
+  //             private router: Router) {}
+  //
+   ngOnInit(): void {
+  //
+  //   this.tutorialService.getFinalBalanceLastMonth().subscribe(
+  //     res => {
+  //       this.tutorial.balancePreviousMonth = res;
+  //       console.log(res);
+  //     }
+  //   );
+  //
+  //   this.tutorialService.getTotalTreasuryOperationsLastRow().subscribe(
+  //     res => {
+  //       this.tutorial.operationTreasuryAnterior = res;
+  //       console.log(res);
+  //     }
+  //   );
+  //
+  //   this.tutorialService.getTotalRegulationOperationsLastRow().subscribe(
+  //     res => {
+  //       this.tutorial.operationPreviousRegulation = res;
+  //       console.log(res);
+  //     }
+  //   );
+   }
 
   saveTutorial(): void {
     const data = {
@@ -76,36 +76,36 @@ export class AddTutorialComponent implements OnInit {
       description: this.tutorial.description
     };
 
-    this.tutorialService.create(data).subscribe({
-      next: (res) => {
-        console.log(res);
-        this.submitted = true;
-        this.router.navigate(['/tutorials']);
-      },
-      error: (e) => console.error(e)
-    });
-  }
+    //   this.tutorialService.create(data).subscribe({
+    //     next: (res) => {
+    //       console.log(res);
+    //       this.submitted = true;
+    //       this.router.navigate(['/tutorials']);
+    //     },
+    //     error: (e) => console.error(e)
+    //   });
+    // }
 
-  newTutorial(): void {
-    this.submitted = false;
-    this.tutorial = {
-      title: '',
-      recipeToday: 0,
-      balancePreviousMonth: 0,
-      operationTreasuryAnterior: 0,
-      operationTreasuryToday: 0,
-      operationPreviousRegulation: 0,
-      operationRegulationToday: 0,
-      postCurrentAccount: 0,
-      creditExpected: 0,
-      rateExpected: 0,
-      otherValues: 0,
-      statesRepartition: 0,
-      moneySpecies: 0,
-      organismId: 0,
-      description: '',
-      published: false
-    };
+    // newTutorial(): void {
+    //   this.submitted = false;
+    //   this.tutorial = {
+    //     title: '',
+    //     recipeToday: 0,
+    //     balancePreviousMonth: 0,
+    //     operationTreasuryAnterior: 0,
+    //     operationTreasuryToday: 0,
+    //     operationPreviousRegulation: 0,
+    //     operationRegulationToday: 0,
+    //     postCurrentAccount: 0,
+    //     creditExpected: 0,
+    //     rateExpected: 0,
+    //     otherValues: 0,
+    //     statesRepartition: 0,
+    //     moneySpecies: 0,
+    //     organismId: 0,
+    //     description: '',
+    //     published: false
+    //   };
+    // }
   }
-
 }
